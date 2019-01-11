@@ -38,9 +38,15 @@
 //   );
 // });
 
-self.addEventListener("message", function(event) {
-  console.log("SW Received Message: " + event.data);
-  event.ports[0].postMessage("SW Says 'Hello back!'");
+const test = [];
+
+self.addEventListener("message", event => {
+  test.push(event.data);
+  console.log("SW bruit Received Message: " + event.data);
+  // console.log(test);
+  //clients.matchAll({ includeUncontrolled: true }).then(console.log);
+  event.ports[0].postMessage(test);
+  // event.ports[0].postMessage("SWBRUIT Says 'Hello back!'");
 });
 
 self.addEventListener("push", function(event) {
