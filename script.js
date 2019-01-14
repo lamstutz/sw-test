@@ -71,9 +71,7 @@ console.log("started");
 
 setInterval(() => {
   if (bsw && bsw.postMessage) {
-    send_message_to_sw("yoooloooo")
-      .then(console.log)
-      .catch(console.error);
+    send_message_to_sw("yoooloooo").catch(console.error);
   } else {
     console.warn("bsw not ready");
   }
